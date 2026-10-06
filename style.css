@@ -1383,3 +1383,372 @@ body.light .menu-toggle span {
     }
 
 }
+/* =====================================================
+   CORREÇÃO FINAL — TIPOGRAFIA E ESPAÇAMENTO MOBILE
+===================================================== */
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    letter-spacing: normal;
+}
+
+
+/* HEADER */
+
+.header-inner {
+    min-width: 0;
+}
+
+.desktop-nav {
+    gap: 28px;
+    white-space: nowrap;
+}
+
+.desktop-nav a {
+    white-space: nowrap;
+    letter-spacing: .12em;
+}
+
+
+/* HERO */
+
+.hero h1 {
+    letter-spacing: -0.025em;
+    word-spacing: 0.04em;
+}
+
+.hero h1 span,
+.hero h1 em {
+    display: block;
+    width: 100%;
+}
+
+.hero-content > p {
+    letter-spacing: 0;
+    word-spacing: 0.05em;
+}
+
+
+/* TEXTOS GERAIS */
+
+p,
+a,
+button,
+h1,
+h2,
+h3 {
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+
+/* MENU */
+
+.mobile-menu nav {
+    gap: 18px;
+}
+
+.mobile-menu nav a {
+    letter-spacing: -0.01em;
+    word-spacing: 0.03em;
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .site-header {
+        padding: 12px 16px;
+    }
+
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .brand {
+        flex-shrink: 0;
+    }
+
+    .brand-image {
+        width: 54px;
+        height: 54px;
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+    }
+
+    .language-button {
+        min-width: 62px;
+        height: 38px;
+        padding: 0 8px;
+        white-space: nowrap;
+    }
+
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 38px;
+        flex-shrink: 0;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding:
+            150px
+            24px
+            85px;
+
+        min-height: 100svh;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(58px, 17vw, 88px);
+        line-height: .84;
+        letter-spacing: -0.025em;
+        word-spacing: normal;
+    }
+
+    .hero h1 span,
+    .hero h1 em {
+        white-space: normal;
+    }
+
+    .hero-content > p {
+        width: 100%;
+        max-width: 470px;
+        margin-top: 30px;
+        font-size: 16px;
+        line-height: 1.65;
+        letter-spacing: 0;
+    }
+
+
+    /* SEÇÕES */
+
+    .section {
+        padding: 85px 24px;
+    }
+
+    .section-label {
+        gap: 14px;
+        margin-bottom: 48px;
+        letter-spacing: .22em;
+    }
+
+
+    /* FILOSOFIA */
+
+    .philosophy-grid {
+        display: block;
+    }
+
+    .philosophy-heading h2 {
+        font-size: clamp(52px, 15vw, 76px);
+        line-height: .88;
+        letter-spacing: -0.025em;
+    }
+
+    .philosophy-text {
+        margin-top: 50px;
+    }
+
+    .large-text {
+        font-size: 27px;
+        line-height: 1.18;
+        letter-spacing: 0;
+    }
+
+    .philosophy-text p:not(.large-text) {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+
+    /* INTRO */
+
+    .intro {
+        display: block;
+        padding: 85px 24px;
+    }
+
+    .intro-number {
+        margin-bottom: 45px;
+    }
+
+    .intro-content h2 {
+        font-size: clamp(50px, 14vw, 76px);
+        line-height: .9;
+        letter-spacing: -0.025em;
+    }
+
+    .intro-content > p:last-child {
+        margin-top: 35px;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+
+    /* ESPECIALIDADES */
+
+    .services-heading {
+        display: block;
+    }
+
+    .services-heading h2 {
+        font-size: clamp(50px, 14vw, 76px);
+        line-height: .9;
+        letter-spacing: -0.025em;
+    }
+
+    .services-heading p {
+        margin-top: 30px;
+        line-height: 1.8;
+    }
+
+    .service-item {
+        grid-template-columns: 35px minmax(0, 1fr) 25px;
+        gap: 12px;
+        padding: 28px 0;
+    }
+
+    .service-name {
+        min-width: 0;
+    }
+
+    .service-name h3 {
+        font-size: clamp(31px, 9vw, 43px);
+        line-height: 1;
+        letter-spacing: -0.01em;
+        white-space: normal;
+    }
+
+    .service-name p {
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+
+    /* EDITORIAL */
+
+    .editorial-content {
+        padding: 75px 24px;
+    }
+
+    .editorial-content h2 {
+        font-size: clamp(50px, 14vw, 76px);
+        line-height: .9;
+        letter-spacing: -0.025em;
+    }
+
+    .editorial-content p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+
+    /* RESULTADOS */
+
+    .results-content h2 {
+        margin-top: 0;
+        font-size: clamp(50px, 14vw, 76px);
+        line-height: .9;
+        letter-spacing: -0.025em;
+    }
+
+    .results-content p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+
+    /* CTA */
+
+    .cta {
+        padding: 100px 24px;
+    }
+
+    .cta h2 {
+        font-size: clamp(70px, 20vw, 110px);
+        line-height: .8;
+        letter-spacing: -0.025em;
+    }
+
+    .cta p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+
+    /* CONTACTOS */
+
+    .contacts-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .contacts-grid p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    /* MENU MOBILE */
+
+    .mobile-menu-content {
+        padding: 105px 24px 25px;
+    }
+
+    .mobile-menu nav {
+        gap: 16px;
+    }
+
+    .mobile-menu nav a {
+        font-size: clamp(43px, 12vw, 65px);
+        line-height: .95;
+        letter-spacing: -0.02em;
+        white-space: normal;
+    }
+
+
+    /* IDIOMAS */
+
+    .language-menu {
+        width: 190px;
+        right: 0;
+    }
+
+    .language-menu button {
+        min-height: 46px;
+        line-height: 1.3;
+    }
+
+}
