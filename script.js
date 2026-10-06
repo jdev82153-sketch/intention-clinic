@@ -1,286 +1,197 @@
 /* =====================================================
    INTENTION CLINIC
-   INTERACTIONS
+   Interactive functions
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =========================
-       LOADER
-    ========================== */
+    /* =================================================
+       MENU
+    ================================================= */
 
-    const loader = document.querySelector(".page-loader");
+    const menuButton = document.getElementById("menuButton");
+    const menu = document.getElementById("menu");
+    const menuLinks = document.querySelectorAll(".menu a");
 
-    setTimeout(() => {
-        loader.classList.add("hidden");
+    if (menuButton && menu) {
 
-        document.body.classList.add("page-loaded");
+        menuButton.addEventListener("click", () => {
 
-    }, 1200);
-
-
-    /* =========================
-       HEADER SCROLL
-    ========================== */
-
-    const header = document.querySelector(".header");
-
-    function updateHeader() {
-
-        if (window.scrollY > 60) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-
-    }
-
-    window.addEventListener("scroll", updateHeader);
-
-    updateHeader();
-
-
-    /* =========================
-       MOBILE MENU
-    ========================== */
-
-    const menuButton = document.querySelector("#menuButton");
-    const mobileMenu = document.querySelector("#mobileMenu");
-    const mobileLinks = document.querySelectorAll(
-        ".mobile-menu a"
-    );
-
-    function toggleMenu() {
-
-        const isOpen =
-            mobileMenu.classList.contains("open");
-
-        mobileMenu.classList.toggle(
-            "open",
-            !isOpen
-        );
-
-        menuButton.classList.toggle(
-            "active",
-            !isOpen
-        );
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            String(!isOpen)
-        );
-
-        document.body.classList.toggle(
-            "menu-open",
-            !isOpen
-        );
-
-    }
-
-    menuButton.addEventListener(
-        "click",
-        toggleMenu
-    );
-
-
-    mobileLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            mobileMenu.classList.remove("open");
-
-            menuButton.classList.remove("active");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            document.body.classList.remove(
-                "menu-open"
-            );
+            menuButton.classList.toggle("active");
+            menu.classList.toggle("open");
+            document.body.classList.toggle("no-scroll");
 
         });
 
-    });
+        menuLinks.forEach(link => {
 
+            link.addEventListener("click", () => {
 
-    /* =========================
-       SCROLL REVEAL
-    ========================== */
+                menuButton.classList.remove("active");
+                menu.classList.remove("open");
+                document.body.classList.remove("no-scroll");
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
+            });
 
-    const observer =
-        new IntersectionObserver(
-            (entries) => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-
-    revealElements.forEach(element => {
-
-        observer.observe(element);
-
-    });
-
-
-    /* =========================
-       THEME
-    ========================== */
-
-    const themeButton =
-        document.querySelector("#themeButton");
-
-    const savedTheme =
-        localStorage.getItem(
-            "intention-theme"
-        );
-
-    if (savedTheme === "light") {
-
-        document.body.classList.add(
-            "light-mode"
-        );
-
-        themeButton.textContent = "☀";
-
+        });
     }
 
 
-    themeButton.addEventListener(
-        "click",
-        () => {
+    /* =================================================
+       THEME
+    ================================================= */
+
+    const themeToggle = document.getElementById("themeToggle");
+
+    if (themeToggle) {
+
+        const savedTheme = localStorage.getItem("intention-theme");
+
+        if (savedTheme === "light") {
+            document.body.classList.add("light-mode");
+        }
+
+        themeToggle.addEventListener("click", () => {
+
+            document.body.classList.toggle("light-mode");
 
             const isLight =
-                document.body.classList.toggle(
-                    "light-mode"
-                );
-
-            themeButton.textContent =
-                isLight ? "☀" : "☾";
+                document.body.classList.contains("light-mode");
 
             localStorage.setItem(
                 "intention-theme",
                 isLight ? "light" : "dark"
             );
 
-        }
-    );
-
-
-    /* =========================
-       SMOOTH ANCHOR
-    ========================== */
-
-    document
-        .querySelectorAll('a[href^="#"]')
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                event => {
-
-                    const targetId =
-                        link.getAttribute("href");
-
-                    if (
-                        targetId === "#" ||
-                        !document.querySelector(
-                            targetId
-                        )
-                    ) {
-                        return;
-                    }
-
-                    event.preventDefault();
-
-                    document
-                        .querySelector(targetId)
-                        .scrollIntoView({
-                            behavior: "smooth"
-                        });
-
-                }
-            );
-
-        });
-
-
-    /* =========================
-       HERO PARALLAX
-    ========================== */
-
-    const heroBackground =
-        document.querySelector(
-            ".hero-background"
-        );
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            const scroll =
-                window.scrollY;
-
-            if (scroll < window.innerHeight) {
-
-                heroBackground.style.transform =
-                    `translateY(${scroll * 0.18}px) scale(1.02)`;
-
-            }
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    /* =========================
-       CURSOR EFFECT — DESKTOP
-    ========================== */
-
-    if (window.innerWidth > 900) {
-
-        const interactiveElements =
-            document.querySelectorAll(
-                "a, button"
-            );
-
-        interactiveElements.forEach(element => {
-
-            element.addEventListener(
-                "mouseenter",
-                () => {
-                    element.style.transition =
-                        "transform .3s ease";
-                }
-            );
-
         });
 
     }
+
+
+    /* =================================================
+       SCROLL ANIMATIONS
+    ================================================= */
+
+    const animatedElements = document.querySelectorAll(
+        ".section-number, " +
+        ".philosophy-content, " +
+        ".intro-content, " +
+        ".service-card, " +
+        ".editorial-text, " +
+        ".result-image, " +
+        ".notes-content, " +
+        ".notes-image, " +
+        ".cta-content, " +
+        ".contact-left, " +
+        ".contact-right"
+    );
+
+    animatedElements.forEach(element => {
+        element.classList.add("fade-in");
+    });
+
+
+    const observer = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+
+
+    /* =================================================
+       SERVICE CARDS
+    ================================================= */
+
+    const cards = document.querySelectorAll(".service-card");
+
+    cards.forEach((card, index) => {
+
+        card.style.transitionDelay = `${index * 80}ms`;
+
+    });
+
+
+    /* =================================================
+       HERO PARALLAX
+    ================================================= */
+
+    const heroImage = document.querySelector(".hero-image");
+
+    if (heroImage) {
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                const scrollPosition = window.scrollY;
+
+                if (scrollPosition < window.innerHeight) {
+
+                    heroImage.style.transform =
+                        `scale(1) translateY(${scrollPosition * 0.12}px)`;
+
+                }
+
+            },
+            { passive: true }
+        );
+
+    }
+
+
+    /* =================================================
+       CURRENT YEAR
+    ================================================= */
+
+    const year = document.getElementById("year");
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+
+
+    /* =================================================
+       ESC CLOSE MENU
+    ================================================= */
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+
+            if (menu && menu.classList.contains("open")) {
+
+                menu.classList.remove("open");
+
+                if (menuButton) {
+                    menuButton.classList.remove("active");
+                }
+
+                document.body.classList.remove("no-scroll");
+
+            }
+
+        }
+
+    });
 
 });
