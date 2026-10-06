@@ -1,96 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>INTENTION — By Inês Carneiro</title>
+    <meta name="description" content="INTENTION Clinic by Inês Carneiro — Estética avançada, cuidado personalizado e uma experiência pensada para si.">
 
-    <meta
-        name="description"
-        content="Intention Clinic by Inês Carneiro — estética avançada, cuidados personalizados e uma experiência pensada para si."
-    >
-
-    <title>INTENTION — by Inês Carneiro</title>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         LOADING / FADE IN
-    ========================== -->
-
-    <div class="page-loader">
+    <!-- LOADING -->
+    <div class="loader">
         <div class="loader-logo">
-            <img
-                src="imagens/IMG_6959.jpeg"
-                alt="Intention"
-            >
+            <img src="images/IMG_6959.jpeg" alt="INTENTION">
         </div>
-
-        <span>INTENTION</span>
     </div>
 
-
-    <!-- =========================
-         HEADER
-    ========================== -->
-
-    <header class="header" id="header">
+    <!-- HEADER -->
+    <header class="header">
 
         <a href="#inicio" class="brand">
-
-            <div class="brand-logo">
-                <img
-                    src="imagens/IMG_6959.jpeg"
-                    alt="Intention Clinic by Inês Carneiro"
-                >
-            </div>
-
+            <img
+                src="images/IMG_6959.jpeg"
+                alt="INTENTION by Inês Carneiro"
+                class="brand-logo"
+            >
         </a>
-
-
-        <nav class="desktop-nav">
-
-            <a href="#inicio">Início</a>
-            <a href="#filosofia">Filosofia</a>
-            <a href="#experiencia">Experiência</a>
-            <a href="#resultados">Resultados</a>
-            <a href="#contactos">Contactos</a>
-
-        </nav>
-
 
         <div class="header-actions">
 
-            <button
-                class="theme-button"
-                id="themeButton"
-                aria-label="Alterar tema"
-            >
-                ☾
+            <button class="theme-button" id="themeToggle" aria-label="Alterar tema">
+                <span class="moon">☾</span>
             </button>
 
-            <button
-                class="menu-button"
-                id="menuButton"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-            >
+            <button class="menu-button" id="menuButton" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
             </button>
@@ -99,352 +50,226 @@
 
     </header>
 
+    <!-- MENU -->
+    <nav class="menu" id="menu">
 
-    <!-- =========================
-         MOBILE MENU
-    ========================== -->
+        <div class="menu-inner">
 
-    <div class="mobile-menu" id="mobileMenu">
-
-        <div class="mobile-menu-inner">
-
-            <span class="menu-label">
-                MENU
-            </span>
+            <span class="menu-label">MENU</span>
 
             <a href="#inicio">Início</a>
             <a href="#filosofia">Filosofia</a>
-            <a href="#experiencia">Experiência</a>
+            <a href="#especialidades">Especialidades</a>
             <a href="#resultados">Resultados</a>
             <a href="#contactos">Contactos</a>
 
             <a
-                class="menu-whatsapp"
                 href="https://wa.me/351914446942"
                 target="_blank"
-                rel="noopener"
+                class="menu-whatsapp"
             >
                 Agendar consulta
-                <span>↗</span>
             </a>
 
         </div>
 
-    </div>
-
+    </nav>
 
     <main>
 
-        <!-- =========================
-             HERO
-        ========================== -->
-
+        <!-- HERO -->
         <section class="hero" id="inicio">
 
-            <div class="hero-background"></div>
+            <div class="hero-image"></div>
 
             <div class="hero-overlay"></div>
 
-
             <div class="hero-content">
 
-                <span class="eyebrow reveal">
-                    INTENTION CLINIC
+                <span class="eyebrow">
+                    INTENTION / CLINIC
                 </span>
 
-                <h1 class="reveal">
-
-                    Cuidar de si
-                    <br>
-
-                    <em>com intenção.</em>
-
+                <h1>
+                    Com <em>intenção.</em>
                 </h1>
 
-                <p class="hero-description reveal">
-
-                    Estética avançada, cuidado personalizado
-                    e uma experiência pensada para si.
-
+                <p>
+                    Estética avançada, cuidado personalizado e uma
+                    experiência pensada para si.
                 </p>
 
-
-                <div class="hero-buttons reveal">
+                <div class="hero-buttons">
 
                     <a
                         href="https://wa.me/351914446942"
                         target="_blank"
-                        rel="noopener"
                         class="button button-light"
                     >
                         <span>Agendar consulta</span>
-                        <strong>↗</strong>
+                        <span class="arrow">↗</span>
                     </a>
 
-                    <a
-                        href="#filosofia"
-                        class="button button-outline"
-                    >
+                    <a href="#filosofia" class="button button-outline">
                         Explorar
                     </a>
 
                 </div>
 
+            </div>
 
-                <div class="scroll-indicator reveal">
-
-                    <span>
-                        Scroll para descobrir
-                    </span>
-
-                    <div class="scroll-line"></div>
-
-                    <span>↓</span>
-
-                </div>
-
+            <div class="scroll-indicator">
+                <span>SCROLL PARA DESCOBRIR</span>
+                <span class="scroll-arrow">↓</span>
             </div>
 
         </section>
 
 
-        <!-- =========================
-             FILOSOFIA
-        ========================== -->
-
-        <section
-            class="philosophy section-dark"
-            id="filosofia"
-        >
+        <!-- FILOSOFIA -->
+        <section class="philosophy section-dark" id="filosofia">
 
             <div class="section-number">
                 01 / FILOSOFIA
             </div>
 
-
-            <div class="philosophy-content reveal">
-
-                <p class="small-title">
-                    MAIS DO QUE ESTÉTICA
-                </p>
+            <div class="philosophy-content">
 
                 <h2>
-
-                    Não se trata
-                    <br>
-
-                    apenas de
-
+                    Não se trata<br>
+                    apenas de<br>
                     <em>aparência.</em>
-
-                </h2>
-
-                <div class="gold-line"></div>
-
-                <p class="philosophy-text">
-
-                    Na Intention acreditamos que a estética
-                    deve respeitar a individualidade de cada
-                    pessoa.
-
-                    <br><br>
-
-                    Cada tratamento é pensado para realçar
-                    aquilo que já existe em si — com técnica,
-                    cuidado e intenção.
-
-                </p>
-
-            </div>
-
-
-            <div class="floating-word">
-                INTENTION
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             INTRODUÇÃO
-        ========================== -->
-
-        <section class="intro section-light">
-
-            <div class="intro-grid">
-
-                <div class="intro-image reveal">
-
-                    <img
-                        src="imagens/IMG_6963.jpeg"
-                        alt="Experiência Intention"
-                    >
-
-                </div>
-
-
-                <div class="intro-content reveal">
-
-                    <span class="section-number dark">
-                        02 / A EXPERIÊNCIA
-                    </span>
-
-                    <h2>
-
-                        Beleza com
-                        <em>propósito.</em>
-
-                    </h2>
-
-                    <p>
-
-                        Um espaço dedicado à estética avançada,
-                        onde tecnologia, conhecimento e
-                        acompanhamento personalizado se
-                        encontram.
-
-                    </p>
-
-                    <p>
-
-                        Da primeira consulta ao acompanhamento
-                        dos resultados, cada detalhe é pensado
-                        para que a sua experiência seja única.
-
-                    </p>
-
-
-                    <a
-                        href="https://wa.me/351914446942"
-                        target="_blank"
-                        rel="noopener"
-                        class="text-link"
-                    >
-                        Conheça a Intention
-                        <span>→</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SERVIÇOS
-        ========================== -->
-
-        <section
-            class="services section-dark"
-            id="experiencia"
-        >
-
-            <div class="section-heading reveal">
-
-                <span class="section-number">
-                    03 / ESPECIALIDADES
-                </span>
-
-                <h2>
-                    O cuidado
-                    <em>certo.</em>
                 </h2>
 
                 <p>
-                    Soluções pensadas para diferentes
-                    necessidades e objetivos.
+                    Na INTENTION acreditamos que estética é mais do que
+                    transformar o exterior. É cuidar de si, valorizar a
+                    sua individualidade e sentir-se bem na sua própria pele.
                 </p>
 
             </div>
 
+            <div class="philosophy-line"></div>
+
+        </section>
+
+
+        <!-- INTRO -->
+        <section class="intro section-light">
+
+            <div class="intro-number">
+                02 / EXPERIÊNCIA
+            </div>
+
+            <div class="intro-content">
+
+                <span class="small-title">
+                    INTENTION BY INÊS CARNEIRO
+                </span>
+
+                <h2>
+                    Beleza com<br>
+                    <em>propósito.</em>
+                </h2>
+
+                <p>
+                    Uma abordagem personalizada, onde tecnologia,
+                    conhecimento e sensibilidade se encontram para
+                    criar resultados naturais e harmoniosos.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ESPECIALIDADES -->
+        <section class="services section-dark" id="especialidades">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    03 / ESPECIALIDADES
+                </div>
+
+                <h2>
+                    O cuidado<br>
+                    começa <em>aqui.</em>
+                </h2>
+
+            </div>
 
             <div class="services-grid">
 
-                <article class="service-card reveal">
+                <article class="service-card">
 
-                    <span class="service-number">
-                        01
-                    </span>
+                    <span class="service-number">01</span>
 
-                    <h3>
-                        Laser & Skin
-                    </h3>
+                    <div>
+                        <h3>Laser & Skin</h3>
 
-                    <p>
-                        Tecnologia avançada para o cuidado,
-                        renovação e tratamento da pele.
-                    </p>
+                        <p>
+                            Tecnologia avançada para cuidar da pele,
+                            melhorar a sua textura e revelar a sua
+                            luminosidade natural.
+                        </p>
+                    </div>
 
-                    <span class="service-arrow">
-                        ↗
-                    </span>
+                    <span class="service-arrow">↗</span>
 
                 </article>
 
 
-                <article class="service-card reveal">
+                <article class="service-card">
 
-                    <span class="service-number">
-                        02
-                    </span>
+                    <span class="service-number">02</span>
 
-                    <h3>
-                        Estética Avançada
-                    </h3>
+                    <div>
+                        <h3>Estética Avançada</h3>
 
-                    <p>
-                        Tratamentos personalizados para
-                        valorizar a sua beleza natural.
-                    </p>
+                        <p>
+                            Tratamentos personalizados pensados para
+                            respeitar a individualidade de cada pessoa.
+                        </p>
+                    </div>
 
-                    <span class="service-arrow">
-                        ↗
-                    </span>
+                    <span class="service-arrow">↗</span>
 
                 </article>
 
 
-                <article class="service-card reveal">
+                <article class="service-card">
 
-                    <span class="service-number">
-                        03
-                    </span>
+                    <span class="service-number">03</span>
 
-                    <h3>
-                        SkinCare
-                    </h3>
+                    <div>
+                        <h3>Tattoo Studio</h3>
 
-                    <p>
-                        Estratégias de cuidado para uma pele
-                        saudável, luminosa e equilibrada.
-                    </p>
+                        <p>
+                            Um espaço dedicado à expressão individual,
+                            com atenção ao detalhe e à experiência.
+                        </p>
+                    </div>
 
-                    <span class="service-arrow">
-                        ↗
-                    </span>
+                    <span class="service-arrow">↗</span>
 
                 </article>
 
 
-                <article class="service-card reveal">
+                <article class="service-card">
 
-                    <span class="service-number">
-                        04
-                    </span>
+                    <span class="service-number">04</span>
 
-                    <h3>
-                        Tattoo Studio
-                    </h3>
+                    <div>
+                        <h3>Barbershop</h3>
 
-                    <p>
-                        Um espaço pensado para expressão,
-                        detalhe e identidade.
-                    </p>
+                        <p>
+                            Cuidado masculino com uma abordagem
+                            contemporânea, elegante e personalizada.
+                        </p>
+                    </div>
 
-                    <span class="service-arrow">
-                        ↗
-                    </span>
+                    <span class="service-arrow">↗</span>
 
                 </article>
 
@@ -453,154 +278,127 @@
         </section>
 
 
-        <!-- =========================
-             RESULTADO
-        ========================== -->
+        <!-- IMAGEM EDITORIAL -->
+        <section class="editorial-image">
 
-        <section
-            class="results section-light"
-            id="resultados"
-        >
+            <img
+                src="images/IMG_6963.jpeg"
+                alt="Experiência INTENTION"
+                loading="lazy"
+            >
 
-            <div class="results-header reveal">
+            <div class="editorial-overlay"></div>
 
-                <div>
-
-                    <span class="section-number dark">
-                        04 / RESULTADOS
-                    </span>
-
-                    <h2>
-                        Resultados que
-                        <em>falam.</em>
-                    </h2>
-
-                </div>
-
-                <p>
-                    A transformação está nos detalhes.
-                </p>
-
-            </div>
-
-
-            <div class="result-main reveal">
-
-                <img
-                    src="imagens/IMG_6962.jpeg"
-                    alt="Resultado de tratamento estético"
-                >
-
-                <div class="result-label">
-                    <span>RESULTADO</span>
-                    <strong>01</strong>
-                </div>
-
-            </div>
-
-
-            <div class="result-caption reveal">
-
-                <span>
-                    Cuidado personalizado
-                </span>
-
-                <p>
-                    Cada pele tem a sua história.
-                    Cada resultado é único.
-                </p>
-
+            <div class="editorial-text">
+                <span>INTENTION</span>
+                <h2>
+                    Uma experiência<br>
+                    <em>pensada para si.</em>
+                </h2>
             </div>
 
         </section>
 
 
-        <!-- =========================
-             CONTEÚDO / BEAUTY
-        ========================== -->
+        <!-- RESULTADOS -->
+        <section class="results section-light" id="resultados">
 
-        <section class="editorial section-dark">
+            <div class="section-heading light-heading">
 
-            <div class="editorial-grid">
-
-                <div class="editorial-content reveal">
-
-                    <span class="section-number">
-                        05 / BEAUTY NOTES
-                    </span>
-
-                    <h2>
-                        Conhecimento
-                        <em>também é cuidado.</em>
-                    </h2>
-
-                    <p>
-                        Informação, recomendações e
-                        conhecimento para ajudar a cuidar
-                        da sua pele todos os dias.
-                    </p>
-
-                    <a
-                        href="https://www.instagram.com/intentionclinic_portugal/"
-                        target="_blank"
-                        rel="noopener"
-                        class="text-link light"
-                    >
-                        Ver Instagram
-                        <span>↗</span>
-                    </a>
-
+                <div class="section-number">
+                    04 / RESULTADOS
                 </div>
-
-
-                <div class="editorial-image reveal">
-
-                    <img
-                        src="imagens/IMG_6964.jpeg"
-                        alt="Conteúdo de skincare Intention"
-                    >
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CTA
-        ========================== -->
-
-        <section class="cta section-light">
-
-            <div class="cta-inner reveal">
-
-                <span class="section-number dark">
-                    06 / A SUA VEZ
-                </span>
 
                 <h2>
-
-                    O próximo passo
-                    <br>
-
-                    começa com <em>intenção.</em>
-
+                    A mudança<br>
+                    está nos <em>detalhes.</em>
                 </h2>
 
                 <p>
-                    Agende a sua consulta e descubra
-                    uma experiência pensada para si.
+                    Resultados reais através de tratamentos
+                    personalizados e acompanhamento profissional.
                 </p>
+
+            </div>
+
+            <div class="result-image">
+
+                <img
+                    src="images/IMG_6962.jpeg"
+                    alt="Resultado de tratamento facial"
+                    loading="lazy"
+                >
+
+                <div class="result-label before">
+                    <span>ANTES</span>
+                </div>
+
+                <div class="result-label after">
+                    <span>DEPOIS</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BEAUTY NOTES -->
+        <section class="notes section-dark">
+
+            <div class="notes-content">
+
+                <div class="section-number">
+                    05 / BEAUTY NOTES
+                </div>
+
+                <h2>
+                    Conhecimento<br>
+                    também é <em>cuidado.</em>
+                </h2>
+
+                <p>
+                    Informação, recomendações e inspiração para
+                    cuidar da sua pele todos os dias.
+                </p>
+
+            </div>
+
+            <div class="notes-image">
+
+                <img
+                    src="images/IMG_6964.jpeg"
+                    alt="Beauty Notes INTENTION"
+                    loading="lazy"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+        <section class="cta section-dark">
+
+            <div class="cta-decoration">✦</div>
+
+            <div class="cta-content">
+
+                <span class="small-title">
+                    A SUA PELE MERECE INTENÇÃO
+                </span>
+
+                <h2>
+                    Vamos começar<br>
+                    <em>por si.</em>
+                </h2>
 
                 <a
                     href="https://wa.me/351914446942"
                     target="_blank"
-                    rel="noopener"
-                    class="button button-dark"
+                    class="cta-button"
                 >
                     <span>Agendar consulta</span>
-                    <strong>↗</strong>
+                    <span>↗</span>
                 </a>
 
             </div>
@@ -608,96 +406,60 @@
         </section>
 
 
-        <!-- =========================
-             CONTACTOS
-        ========================== -->
+        <!-- CONTACTOS -->
+        <section class="contact section-light" id="contactos">
 
-        <section
-            class="contact section-dark"
-            id="contactos"
-        >
+            <div class="contact-left">
 
-            <div class="contact-grid">
-
-                <div class="contact-brand reveal">
-
-                    <img
-                        src="imagens/IMG_6959.jpeg"
-                        alt="Intention"
-                    >
-
-                    <p>
-                        INTENTION
-                        <br>
-                        <span>by Inês Carneiro</span>
-                    </p>
-
+                <div class="section-number">
+                    06 / CONTACTOS
                 </div>
 
+                <h2>
+                    INTENTION
+                </h2>
 
-                <div class="contact-info reveal">
+                <p>
+                    By Inês Carneiro
+                </p>
 
-                    <span class="section-number">
-                        CONTACTOS
-                    </span>
+            </div>
 
-                    <h2>
-                        Vamos
-                        <em>conversar.</em>
-                    </h2>
+            <div class="contact-right">
 
+                <div class="contact-item">
+                    <span>LOCALIZAÇÃO</span>
+                    <strong>
+                        Rua Eça de Queiroz 62<br>
+                        Aveiro, Portugal
+                    </strong>
+                </div>
 
-                    <div class="contact-item">
+                <div class="contact-item">
+                    <span>MARCAÇÕES</span>
 
-                        <span>
-                            MARCAÇÕES
-                        </span>
+                    <a href="tel:+351914446942">
+                        +351 914 446 942
+                    </a>
+                </div>
 
-                        <a href="tel:+351914446942">
-                            +351 914 446 942
-                        </a>
+                <div class="contact-item">
+                    <span>EMAIL</span>
 
-                    </div>
+                    <a href="mailto:ines.carneiro@outlook.com">
+                        ines.carneiro@outlook.com
+                    </a>
+                </div>
 
-
-                    <div class="contact-item">
-
-                        <span>
-                            LOCALIZAÇÃO
-                        </span>
-
-                        <p>
-                            Rua Eça de Queiroz 62
-                            <br>
-                            Aveiro, Portugal
-                        </p>
-
-                    </div>
-
-
-                    <div class="contact-item">
-
-                        <span>
-                            EMAIL
-                        </span>
-
-                        <a href="mailto:ines.carneiro@outlook.com">
-                            ines.carneiro@outlook.com
-                        </a>
-
-                    </div>
-
+                <div class="contact-item">
+                    <span>INSTAGRAM</span>
 
                     <a
-                        href="https://wa.me/351914446942"
+                        href="https://www.instagram.com/intentionclinic_portugal/"
                         target="_blank"
-                        rel="noopener"
-                        class="contact-button"
                     >
-                        WhatsApp
-                        <span>↗</span>
+                        @intentionclinic_portugal
                     </a>
-
                 </div>
 
             </div>
@@ -707,27 +469,29 @@
     </main>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
+    <!-- FOOTER -->
     <footer class="footer section-dark">
 
-        <div>
-            © 2026 Intention Clinic
+        <div class="footer-logo">
+
+            <img
+                src="images/IMG_6959.jpeg"
+                alt="INTENTION"
+            >
+
         </div>
 
-        <div>
-            by Inês Carneiro
-        </div>
+        <div class="footer-bottom">
 
-        <a
-            href="https://www.instagram.com/intentionclinic_portugal/"
-            target="_blank"
-            rel="noopener"
-        >
-            Instagram ↗
-        </a>
+            <span>
+                © <span id="year"></span> INTENTION
+            </span>
+
+            <span>
+                BY INÊS CARNEIRO
+            </span>
+
+        </div>
 
     </footer>
 
@@ -736,8 +500,7 @@
     <a
         href="https://wa.me/351914446942"
         target="_blank"
-        rel="noopener"
-        class="whatsapp-float"
+        class="whatsapp"
         aria-label="Contactar pelo WhatsApp"
     >
         WA
