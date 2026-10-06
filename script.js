@@ -1,257 +1,286 @@
-/* =========================================
+/* =====================================================
    INTENTION CLINIC
    INTERACTIONS
-========================================= */
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================
+       LOADER
+    ========================== */
+
+    const loader = document.querySelector(".page-loader");
+
+    setTimeout(() => {
+        loader.classList.add("hidden");
+
+        document.body.classList.add("page-loaded");
+
+    }, 1200);
 
 
-/* =========================================
-   HEADER ON SCROLL
-========================================= */
+    /* =========================
+       HEADER SCROLL
+    ========================== */
 
-const header = document.getElementById("header");
+    const header = document.querySelector(".header");
 
-function updateHeader() {
+    function updateHeader() {
 
-    if (window.scrollY > 40) {
-
-        header.classList.add("scrolled");
-
-    } else {
-
-        header.classList.remove("scrolled");
-
-    }
-}
-
-window.addEventListener("scroll", updateHeader);
-
-updateHeader();
-
-
-/* =========================================
-   MOBILE MENU
-========================================= */
-
-const menuToggle = document.getElementById("menuToggle");
-const nav = document.getElementById("nav");
-const navLinks = document.querySelectorAll(".nav a");
-
-menuToggle.addEventListener("click", () => {
-
-    menuToggle.classList.toggle("active");
-
-    nav.classList.toggle("active");
-
-    document.body.classList.toggle("menu-open");
-
-});
-
-
-navLinks.forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        menuToggle.classList.remove("active");
-
-        nav.classList.remove("active");
-
-        document.body.classList.remove("menu-open");
-
-    });
-
-});
-
-
-/* =========================================
-   DARK / LIGHT MODE
-========================================= */
-
-const themeToggle = document.getElementById("themeToggle");
-
-const savedTheme = localStorage.getItem("intention-theme");
-
-if (savedTheme === "dark") {
-
-    document.body.classList.add("dark");
-
-}
-
-
-themeToggle.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    const isDark =
-        document.body.classList.contains("dark");
-
-    localStorage.setItem(
-        "intention-theme",
-        isDark ? "dark" : "light"
-    );
-
-});
-
-
-/* =========================================
-   SCROLL REVEAL
-========================================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-const revealObserver =
-    new IntersectionObserver(
-
-        (entries, observer) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("active");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.12,
-
-            rootMargin: "0px 0px -50px 0px"
+        if (window.scrollY > 60) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
         }
 
+    }
+
+    window.addEventListener("scroll", updateHeader);
+
+    updateHeader();
+
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuButton = document.querySelector("#menuButton");
+    const mobileMenu = document.querySelector("#mobileMenu");
+    const mobileLinks = document.querySelectorAll(
+        ".mobile-menu a"
+    );
+
+    function toggleMenu() {
+
+        const isOpen =
+            mobileMenu.classList.contains("open");
+
+        mobileMenu.classList.toggle(
+            "open",
+            !isOpen
+        );
+
+        menuButton.classList.toggle(
+            "active",
+            !isOpen
+        );
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+        );
+
+        document.body.classList.toggle(
+            "menu-open",
+            !isOpen
+        );
+
+    }
+
+    menuButton.addEventListener(
+        "click",
+        toggleMenu
     );
 
 
-revealElements.forEach(element => {
+    mobileLinks.forEach(link => {
 
-    revealObserver.observe(element);
+        link.addEventListener("click", () => {
 
-});
+            mobileMenu.classList.remove("open");
 
+            menuButton.classList.remove("active");
 
-/* =========================================
-   SMOOTH ANCHOR
-========================================= */
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function (event) {
-
-        const target =
-            document.querySelector(this.getAttribute("href"));
-
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-
-            behavior: "smooth",
-
-            block: "start"
+            document.body.classList.remove(
+                "menu-open"
+            );
 
         });
 
     });
 
-});
 
+    /* =========================
+       SCROLL REVEAL
+    ========================== */
 
-/* =========================================
-   PARALLAX HERO
-========================================= */
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
-const heroBackground =
-    document.querySelector(".hero-background");
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
 
+                entries.forEach(entry => {
 
-window.addEventListener("scroll", () => {
+                    if (entry.isIntersecting) {
 
-    if (!heroBackground) return;
+                        entry.target.classList.add(
+                            "visible"
+                        );
 
-    const scroll =
-        window.scrollY;
+                        observer.unobserve(
+                            entry.target
+                        );
 
-    if (scroll < window.innerHeight) {
+                    }
 
-        heroBackground.style.transform =
-            `scale(1.04) translateY(${scroll * 0.12}px)`;
+                });
 
-    }
-
-});
-
-
-/* =========================================
-   CURSOR EFFECT — DESKTOP
-========================================= */
-
-if (window.innerWidth > 1000) {
-
-    const buttons =
-        document.querySelectorAll(
-            ".button, .header-book, .contact-button, .text-link"
+            },
+            {
+                threshold: 0.12
+            }
         );
 
 
-    buttons.forEach(button => {
+    revealElements.forEach(element => {
 
-        button.addEventListener("mouseenter", () => {
-
-            document.body.classList.add("hovering");
-
-        });
-
-
-        button.addEventListener("mouseleave", () => {
-
-            document.body.classList.remove("hovering");
-
-        });
+        observer.observe(element);
 
     });
 
-}
+
+    /* =========================
+       THEME
+    ========================== */
+
+    const themeButton =
+        document.querySelector("#themeButton");
+
+    const savedTheme =
+        localStorage.getItem(
+            "intention-theme"
+        );
+
+    if (savedTheme === "light") {
+
+        document.body.classList.add(
+            "light-mode"
+        );
+
+        themeButton.textContent = "☀";
+
+    }
 
 
-/* =========================================
-   YEAR AUTOMATIC
-========================================= */
+    themeButton.addEventListener(
+        "click",
+        () => {
 
-const footerYear =
-    document.querySelector(".footer-bottom span");
+            const isLight =
+                document.body.classList.toggle(
+                    "light-mode"
+                );
 
-if (footerYear) {
+            themeButton.textContent =
+                isLight ? "☀" : "☾";
 
-    footerYear.textContent =
-        `© ${new Date().getFullYear()} INTENTION Clinic`;
-
-}
-
-
-/* =========================================
-   INTRO CLEANUP
-========================================= */
-
-window.addEventListener("load", () => {
-
-    setTimeout(() => {
-
-        const intro =
-            document.getElementById("intro");
-
-        if (intro) {
-
-            intro.remove();
+            localStorage.setItem(
+                "intention-theme",
+                isLight ? "light" : "dark"
+            );
 
         }
+    );
 
-    }, 3500);
+
+    /* =========================
+       SMOOTH ANCHOR
+    ========================== */
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    const targetId =
+                        link.getAttribute("href");
+
+                    if (
+                        targetId === "#" ||
+                        !document.querySelector(
+                            targetId
+                        )
+                    ) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    document
+                        .querySelector(targetId)
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                }
+            );
+
+        });
+
+
+    /* =========================
+       HERO PARALLAX
+    ========================== */
+
+    const heroBackground =
+        document.querySelector(
+            ".hero-background"
+        );
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            const scroll =
+                window.scrollY;
+
+            if (scroll < window.innerHeight) {
+
+                heroBackground.style.transform =
+                    `translateY(${scroll * 0.18}px) scale(1.02)`;
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =========================
+       CURSOR EFFECT — DESKTOP
+    ========================== */
+
+    if (window.innerWidth > 900) {
+
+        const interactiveElements =
+            document.querySelectorAll(
+                "a, button"
+            );
+
+        interactiveElements.forEach(element => {
+
+            element.addEventListener(
+                "mouseenter",
+                () => {
+                    element.style.transition =
+                        "transform .3s ease";
+                }
+            );
+
+        });
+
+    }
 
 });
